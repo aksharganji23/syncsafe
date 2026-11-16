@@ -1,0 +1,43 @@
+# Runs the website's automated tests on every push and pull request:
+# unit tests, sync API tests, feature tests and the randomized durability test.
+# The tests run twice: on the built-in PostgreSQL (PGlite) and on a real PostgreSQL server.
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        database: [pglite, postgres]
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - run: npm ci
+      - name: Tests (${{ matrix.database }})
+        env:
+          TEST_DATABASE_URL: ${{ matrix.database == 'postgres' && 'postgresql://postgres:postgres@localhost:5432/postgres' || '' }}
+        run: npm test
+      - name: Durability, 1,000 cycles
+        if: matrix.database == 'pglite'
+        run: npm run test:durability

@@ -1,0 +1,9 @@
+title,location,status,priority,notes
+Valid row one,Ward 1,Pending,Low,This row is fine
+,Ward 2,Pending,Low,ERROR: title is empty
+Valid row two,Ward 3,Visited,High,This row is fine
+Bad status row,Ward 4,Done,Medium,"ERROR: status ""Done"" is not allowed"
+Bad priority row,Ward 5,Pending,Urgent,"ERROR: priority ""Urgent"" is not allowed"
+Valid row three,Ward 6,Closed,Medium,"Commas, quotes ""and"" line
+breaks inside a field are handled"
+This title is far too long on purpose so that it goes past the one hundred and twenty character limit set by the validation rules,Ward 7,Pending,Low,ERROR: title over 120 characters

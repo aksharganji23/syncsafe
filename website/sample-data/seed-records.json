@@ -1,0 +1,321 @@
+[
+  {
+    "title": "Hand pump inspection - Ward 4",
+    "location": "Warrensburg, Ward 4",
+    "status": "Pending",
+    "priority": "High",
+    "notes": "Residents report low water pressure since Monday.",
+    "geo": {
+      "lat": 38.75223,
+      "lng": -93.76393,
+      "accuracy": 18.0
+    },
+    "assigned": "asha",
+    "due_in_days": -2,
+    "custom": {
+      "households": 40,
+      "ward": "Ward 4",
+      "followup_call": true
+    }
+  },
+  {
+    "title": "Community clinic supply check",
+    "location": "Holden Clinic",
+    "status": "Visited",
+    "priority": "Medium",
+    "notes": "ORS packets running low; 2 boxes left.",
+    "geo": {
+      "lat": 38.73715,
+      "lng": -93.73313,
+      "accuracy": 12.3
+    }
+  },
+  {
+    "title": "School sanitation survey",
+    "location": "Knob Noster Elementary",
+    "status": "Follow-up",
+    "priority": "High",
+    "notes": "Girls' washroom door broken. Photo taken.",
+    "geo": {
+      "lat": 38.73628,
+      "lng": -93.73541,
+      "accuracy": 5.7
+    },
+    "assigned": "asha",
+    "due_in_days": 3,
+    "custom": {
+      "households": 0,
+      "ward": "Ward 2",
+      "followup_call": false
+    }
+  },
+  {
+    "title": "Street light outage report",
+    "location": "Main St & Pine St",
+    "status": "Pending",
+    "priority": "Low",
+    "notes": "",
+    "geo": {
+      "lat": 38.75882,
+      "lng": -93.77041,
+      "accuracy": 6.8
+    }
+  },
+  {
+    "title": "Farm soil sample collection",
+    "location": "Route 13 farmland, plot 7",
+    "status": "Visited",
+    "priority": "Medium",
+    "notes": "Collected 3 samples, labelled S7-A to S7-C.",
+    "geo": {
+      "lat": 38.75827,
+      "lng": -93.70985,
+      "accuracy": 7.5
+    }
+  },
+  {
+    "title": "Household census - Block B",
+    "location": "Block B, Houses 1-20",
+    "status": "Pending",
+    "priority": "Medium",
+    "notes": "Start with houses 1-10.",
+    "geo": {
+      "lat": 38.74619,
+      "lng": -93.72581,
+      "accuracy": 24.0
+    }
+  },
+  {
+    "title": "Bridge crack assessment",
+    "location": "Blackwater River bridge",
+    "status": "Follow-up",
+    "priority": "High",
+    "notes": "Hairline crack on east pillar; needs engineer review.",
+    "geo": {
+      "lat": 38.76743,
+      "lng": -93.74427,
+      "accuracy": 24.5
+    },
+    "assigned": "ravi",
+    "due_in_days": -1
+  },
+  {
+    "title": "Vaccination camp attendance",
+    "location": "Community Hall",
+    "status": "Closed",
+    "priority": "Medium",
+    "notes": "142 people vaccinated.",
+    "geo": {
+      "lat": 38.73559,
+      "lng": -93.70732,
+      "accuracy": 10.8
+    }
+  },
+  {
+    "title": "Drainage blockage",
+    "location": "Maple Ave, near bakery",
+    "status": "Pending",
+    "priority": "High",
+    "notes": "Water pooling after rain.",
+    "geo": {
+      "lat": 38.74146,
+      "lng": -93.76658,
+      "accuracy": 11.2
+    },
+    "assigned": "ravi",
+    "due_in_days": 1,
+    "custom": {
+      "households": 12,
+      "ward": "Ward 3",
+      "followup_call": true
+    }
+  },
+  {
+    "title": "Park equipment safety check",
+    "location": "Lions Park",
+    "status": "Visited",
+    "priority": "Low",
+    "notes": "Swing chain rusted; flagged for replacement.",
+    "geo": {
+      "lat": 38.78177,
+      "lng": -93.76154,
+      "accuracy": 16.6
+    }
+  },
+  {
+    "title": "Library Wi-Fi coverage test",
+    "location": "Trails Regional Library",
+    "status": "Closed",
+    "priority": "Low",
+    "notes": "Dead zone at back reading room.",
+    "geo": {
+      "lat": 38.77113,
+      "lng": -93.74621,
+      "accuracy": 16.0
+    }
+  },
+  {
+    "title": "Food pantry stock count",
+    "location": "St. Paul's pantry",
+    "status": "Visited",
+    "priority": "Medium",
+    "notes": "Canned beans 40, rice 25 bags.",
+    "geo": {
+      "lat": 38.73657,
+      "lng": -93.77123,
+      "accuracy": 9.1
+    }
+  },
+  {
+    "title": "Bus stop shelter damage",
+    "location": "Stop 12, Holden St",
+    "status": "Pending",
+    "priority": "Medium",
+    "notes": "Glass panel shattered.",
+    "geo": {
+      "lat": 38.77362,
+      "lng": -93.74179,
+      "accuracy": 11.3
+    }
+  },
+  {
+    "title": "Senior home welfare visit",
+    "location": "Oak Grove Residence",
+    "status": "Follow-up",
+    "priority": "High",
+    "notes": "Mrs. Lee needs medicine refill; call pharmacy.",
+    "geo": {
+      "lat": 38.76793,
+      "lng": -93.73975,
+      "accuracy": 11.0
+    },
+    "assigned": "asha",
+    "due_in_days": 0
+  },
+  {
+    "title": "Tree fall hazard",
+    "location": "College Ave",
+    "status": "Pending",
+    "priority": "High",
+    "notes": "Leaning oak over sidewalk.",
+    "geo": {
+      "lat": 38.78046,
+      "lng": -93.72008,
+      "accuracy": 9.9
+    },
+    "assigned": "ravi",
+    "due_in_days": 5
+  },
+  {
+    "title": "Recycling bin audit",
+    "location": "Downtown district",
+    "status": "Closed",
+    "priority": "Low",
+    "notes": "18 of 20 bins in good condition.",
+    "geo": {
+      "lat": 38.76727,
+      "lng": -93.73398,
+      "accuracy": 22.5
+    }
+  },
+  {
+    "title": "Air quality reading",
+    "location": "Industrial zone gate 2",
+    "status": "Visited",
+    "priority": "Medium",
+    "notes": "PM2.5 reading taken at 9:00.",
+    "geo": {
+      "lat": 38.77657,
+      "lng": -93.75296,
+      "accuracy": 24.6
+    }
+  },
+  {
+    "title": "Pothole survey - Route 50",
+    "location": "Route 50, mile 3-5",
+    "status": "Pending",
+    "priority": "Medium",
+    "notes": "Count and mark potholes.",
+    "geo": {
+      "lat": 38.73988,
+      "lng": -93.74255,
+      "accuracy": 20.1
+    },
+    "assigned": "asha",
+    "due_in_days": 7
+  },
+  {
+    "title": "Fire hydrant check",
+    "location": "Elm St, hydrant #22",
+    "status": "Closed",
+    "priority": "Medium",
+    "notes": "Working; paint faded.",
+    "geo": {
+      "lat": 38.74192,
+      "lng": -93.73688,
+      "accuracy": 5.8
+    }
+  },
+  {
+    "title": "Flood marker installation",
+    "location": "Post Oak Creek",
+    "status": "Follow-up",
+    "priority": "Medium",
+    "notes": "Marker delivered; install next visit.",
+    "geo": {
+      "lat": 38.77289,
+      "lng": -93.71483,
+      "accuracy": 16.5
+    },
+    "assigned": "ravi",
+    "due_in_days": 10
+  },
+  {
+    "title": "Playground surface inspection",
+    "location": "Hawthorne Park",
+    "status": "Pending",
+    "priority": "Low",
+    "notes": "",
+    "geo": {
+      "lat": 38.78533,
+      "lng": -93.7509,
+      "accuracy": 18.9
+    }
+  },
+  {
+    "title": "Water tank cleaning record",
+    "location": "North reservoir",
+    "status": "Visited",
+    "priority": "High",
+    "notes": "Cleaned on schedule; next due in 6 months.",
+    "geo": {
+      "lat": 38.76846,
+      "lng": -93.72961,
+      "accuracy": 14.1
+    }
+  },
+  {
+    "title": "Shelter bed availability",
+    "location": "Johnson County shelter",
+    "status": "Closed",
+    "priority": "Medium",
+    "notes": "12 beds free.",
+    "geo": {
+      "lat": 38.7832,
+      "lng": -93.70043,
+      "accuracy": 14.5
+    }
+  },
+  {
+    "title": "Crosswalk paint request",
+    "location": "Near university main gate",
+    "status": "Pending",
+    "priority": "Medium",
+    "notes": "Students requested repaint.",
+    "geo": {
+      "lat": 38.77265,
+      "lng": -93.77115,
+      "accuracy": 19.0
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "name": "syncsafe-website",
+  "version": "2.0.0",
+  "description": "SyncSafe v2: offline-first data synchronization system (server + browser app)",
+  "type": "module",
+  "main": "server/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "start:https": "node server/index.js --https",
+    "dev": "node --watch server/index.js",
+    "test": "node --test --test-concurrency=1",
+    "test:durability": "node tests/durability-run.js 1000",
+    "test:load": "node tests/load-run.js",
+    "reset": "node server/reset.js",
+    "vendor": "node scripts/vendor.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Chethan Ganji",
+  "license": "MIT",
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "bcryptjs": "^3.0.3",
+    "exceljs": "^4.4.0",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pdfkit": "^0.20.2",
+    "pg": "^8.23.1",
+    "selfsigned": "^5.5.0",
+    "ws": "^8.23.0",
+    "yjs": "^13.6.33"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "leaflet": "^1.9.4"
+  }
+}

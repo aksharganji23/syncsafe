@@ -1,0 +1,126 @@
+Work item ID,Work type,Summary,Description,Priority,Labels,Story Points,Parent
+1,Epic,Foundation,"Project setup, CI, accounts and online CRUD.",High,syncsafe,,
+2,Epic,Offline data,App and data work with no network; changes queue in an outbox.,High,syncsafe,,
+3,Epic,Sync,"Push outbox, pull changes, safe retries, sync status.",High,syncsafe,,
+4,Epic,Conflicts,Detect and resolve conflicting edits from different devices.,High,syncsafe,,
+5,Epic,Monitoring and quality,"Sync history, admin dashboard, load and durability testing.",High,syncsafe,,
+6,Story,US1 CI runs tests on every pull request,"As a developer, I want CI to run tests on every pull request, so that broken code never reaches main.
+
+Acceptance criteria:
+- GitHub Actions runs lint and tests; failed checks block merge
+
+Backlog ID: US1",High,sprint-0,3,1
+7,Story,US2 One-command local setup,"As a developer, I want one-command local setup, so that anyone can run the project.
+
+Acceptance criteria:
+- npm install && npm start (or docker compose up) starts client, API and database
+
+Backlog ID: US2",Medium,sprint-0,2,1
+8,Story,US3 Sign up and log in,"As a user, I want to sign up and log in, so that my data is private.
+
+Acceptance criteria:
+- JWT issued on login; session survives 7 days offline; wrong password rejected
+
+Backlog ID: US3",High,sprint-1,5,1
+9,Story,"US4 Create, edit and delete records online","As a user, I want to create, edit and delete records online, so that I can manage my work.
+
+Acceptance criteria:
+- CRUD persists in the server database; validation errors shown
+
+Backlog ID: US4",High,sprint-1,5,1
+10,Story,US5 Browse and search records,"As a user, I want to browse and search my records, so that I find them fast.
+
+Acceptance criteria:
+- List with search and filter by status
+
+Backlog ID: US5",Medium,sprint-1,3,1
+11,Story,US6 App opens with no internet,"As a user, I want the app to open with no internet, so that I can always reach my work.
+
+Acceptance criteria:
+- App loads in airplane mode after one online visit (service worker)
+
+Backlog ID: US6",High,sprint-2,5,2
+12,Story,US7 Create and edit records offline,"As a user, I want to create and edit records offline, so that I never lose work.
+
+Acceptance criteria:
+- Changes saved to IndexedDB and still there after a page reload
+
+Backlog ID: US7",Highest,sprint-2,8,2
+13,Story,US8 Queue offline changes in an outbox,"As a user, I want my offline changes queued, so that they sync later.
+
+Acceptance criteria:
+- Each change adds one outbox entry in the same transaction as the record
+
+Backlog ID: US8",High,sprint-2,5,2
+14,Story,US9 Show when I am offline,"As a user, I want to see when I am offline, so that I know my state.
+
+Acceptance criteria:
+- Banner appears within 2 s of losing network
+
+Backlog ID: US9",Medium,sprint-2,2,2
+15,Story,US10 Upload changes automatically on reconnect,"As a user, I want changes to upload automatically on reconnect, so that I do not sync by hand.
+
+Acceptance criteria:
+- Outbox empties within 5 s of reconnect for 500 changes
+
+Backlog ID: US10",Highest,sprint-3,8,3
+16,Story,US11 Receive changes from my other devices,"As a user, I want changes from my other devices, so that every device matches.
+
+Acceptance criteria:
+- Pull applies all changes after the stored cursor, deletions included
+
+Backlog ID: US11",Highest,sprint-3,8,3
+17,Story,US12 Safe retries with no duplicates,"As a user, I want retries to be safe, so that I never get duplicates.
+
+Acceptance criteria:
+- Same batch sent 3 times creates each record once (idempotency key per operation)
+
+Backlog ID: US12",High,sprint-3,5,3
+18,Story,US13 Show each record sync state,"As a user, I want each record sync state shown, so that I know my data is safe.
+
+Acceptance criteria:
+- Badge shows Not synced, Synced, Conflict or Rejected
+
+Backlog ID: US13",Medium,sprint-3,3,3
+19,Story,US14 Merge edits to different fields,"As a user, I want edits to different fields merged, so that no work is overwritten.
+
+Acceptance criteria:
+- Two devices edit title and status; both survive
+
+Backlog ID: US14",High,sprint-4,5,4
+20,Story,US15 Keep my edit if someone deleted the record,"As a user, I want my edit kept if someone deleted the record, so that I do not lose it.
+
+Acceptance criteria:
+- Record restored and flagged for review
+
+Backlog ID: US15",Medium,sprint-4,3,4
+21,Story,US16 Choose between conflicting versions,"As a user, I want to choose between conflicting versions, so that important edits survive.
+
+Acceptance criteria:
+- Side-by-side screen; choose mine, theirs or combine
+
+Backlog ID: US16",High,sprint-4,8,4
+22,Story,US17 List open conflicts,"As a user, I want a list of open conflicts, so that none are forgotten.
+
+Acceptance criteria:
+- Count badge on the Conflicts tab; list links to the merge screen
+
+Backlog ID: US17",Medium,sprint-4,3,4
+23,Story,US18 Sync now button and sync history,"As a user, I want a Sync now button and history, so that I can check what synced.
+
+Acceptance criteria:
+- History shows last 50 syncs with counts
+
+Backlog ID: US18",Low,sprint-5,3,5
+24,Story,US19 Sync health dashboard for admins,"As an admin, I want a sync-health dashboard, so that I spot failures.
+
+Acceptance criteria:
+- Devices, failure rate and conflict rate per day; admins only
+
+Backlog ID: US19",Medium,sprint-5,5,5
+25,Story,US20 Load test the server,"As a team, I want the server load-tested, so that we prove it scales.
+
+Acceptance criteria:
+- 200 devices push at once; p95 under 500 ms per batch recorded
+
+Backlog ID: US20",Medium,sprint-5,8,5

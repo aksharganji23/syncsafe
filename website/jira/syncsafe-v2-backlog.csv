@@ -1,0 +1,161 @@
+Work item ID,Work type,Summary,Description,Priority,Labels,Story Points,Parent
+101,Epic,Scale and real time,"PostgreSQL, live updates over WebSockets, multi-server notifications, data clean-up and monitoring.",High,syncsafe-v2,,
+102,Epic,Security and accounts,"Refresh tokens, remote sign-out and wipe, roles, multiple teams, HTTPS and encryption on the device.",High,syncsafe-v2,,
+103,Epic,Field data,"Photos and files, GPS location and map, custom form fields, voice notes.",High,syncsafe-v2,,
+104,Epic,Team workflow,"Assignment, due dates, notifications, reports and exports, history and undo, partial sync.",High,syncsafe-v2,,
+105,Epic,Smart conflicts,"Admin conflict rules, automatic text merge (CRDT), rule-based suggestions and duplicate detection.",High,syncsafe-v2,,
+106,Epic,Delivery and languages,"GitHub Actions builds and releases, signed APK, Telugu / Hindi / English.",High,syncsafe-v2,,
+201,Story,Move the server to PostgreSQL,"As a team lead, I want the server on PostgreSQL so that several servers can share one database as the team grows.
+
+Acceptance criteria:
+- Built-in PostgreSQL (PGlite) works with no install
+- DATABASE_URL switches to a real PostgreSQL server
+- All automated tests pass on both",Medium,sprint-6,8,101
+202,Story,Live updates over WebSockets,"As a field worker, I want changes from teammates to appear within a second so that I never work on stale data.
+
+Acceptance criteria:
+- Device connects to /api/live after login
+- A change on one device reaches others in under 1 s
+- Falls back to normal sync when the socket drops",Medium,sprint-6,5,101
+203,Story,Share change notices between servers,"As an operator, I want every server instance told about changes so that live updates work behind a load balancer.
+
+Acceptance criteria:
+- PostgreSQL LISTEN/NOTIFY when DATABASE_URL is set
+- In-process events with the built-in database",Medium,sprint-6,3,101
+204,Story,Clean up old deleted records,"As an admin, I want old tombstones and logs removed so that the database stays small.
+
+Acceptance criteria:
+- Retention days set in Admin
+- Daily job removes old tombstones and trims logs
+- A device that missed the clean-up re-syncs automatically",Medium,sprint-7,5,101
+205,Story,Monitoring dashboard and Prometheus metrics,"As an admin, I want live charts of sync latency and failures so that I can spot problems.
+
+Acceptance criteria:
+- /metrics in Prometheus format
+- Admin shows last 60 minutes per minute
+- p50 / p95 latency, applied, conflicts, failures",Medium,sprint-7,3,101
+206,Story,Refresh tokens with rotation,"As a user, I want to stay logged in safely so that I am not asked for my password every 15 minutes.
+
+Acceptance criteria:
+- Access token lasts 15 minutes
+- Refresh token rotates on every use
+- Re-using an old refresh token signs the device out",Medium,sprint-6,5,102
+207,Story,Remote sign-out and wipe of a lost phone,"As an admin, I want to sign out a lost phone and erase its data so that records stay private.
+
+Acceptance criteria:
+- Sign out, or sign out + erase, from Admin or My devices
+- Device is blocked within 30 seconds
+- Erase runs the next time the phone connects",Medium,sprint-6,3,102
+208,Story,"Roles: admin, supervisor, field worker, viewer","As an admin, I want roles so that each person can only do what their job needs.
+
+Acceptance criteria:
+- Viewer cannot change anything
+- Only supervisors and admins assign and delete others records
+- Server enforces every rule",Medium,sprint-7,5,102
+209,Story,Multiple teams with invite codes,"As an organiser, I want separate teams so that one server can serve several groups.
+
+Acceptance criteria:
+- Create a team or join with an invite code
+- A team never sees another team data
+- Admin can regenerate the code",Medium,sprint-7,5,102
+210,Story,Encrypt records on the device,"As a field worker, I want my phone data encrypted so that a stolen phone does not leak records.
+
+Acceptance criteria:
+- AES-256 with a key from my password
+- Unlock screen works offline
+- Photos are encrypted too",Medium,sprint-8,5,102
+211,Story,HTTPS option for the laptop server,"As a tester, I want to run the server over HTTPS so that browsers on other devices allow encryption.
+
+Acceptance criteria:
+- npm run start:https makes a certificate
+- Browsers on the Wi-Fi can open it",Medium,sprint-8,2,102
+212,Story,Photos and files with resumable upload,"As a field worker, I want to attach photos offline so that evidence is captured on site.
+
+Acceptance criteria:
+- Photos are compressed and saved offline
+- Upload resumes in 256 KB chunks after a drop
+- Checksum verified; teammates can view them",Medium,sprint-7,8,103
+213,Story,GPS location and map view,"As a supervisor, I want records on a map so that I can plan visits.
+
+Acceptance criteria:
+- Use my location on a record
+- Map tab shows coloured pins by status
+- Tap the map to add a record there",Medium,sprint-7,5,103
+214,Story,Custom form fields,"As an admin, I want extra fields such as Households affected so that the form fits our survey.
+
+Acceptance criteria:
+- Text, number, date, choice list, yes/no
+- Required fields enforced
+- Fields appear in exports",Medium,sprint-8,5,103
+215,Story,Voice notes (dictation),"As a field worker, I want to dictate notes so that I can record findings hands-free.
+
+Acceptance criteria:
+- Dictate button in browsers that support speech
+- Keyboard microphone on Android
+- English, Telugu and Hindi",Medium,sprint-8,2,103
+216,Story,Assign records and set due dates,"As a supervisor, I want to assign work with a due date so that everyone knows what to do next.
+
+Acceptance criteria:
+- Assigned to and due date on every record
+- Filter ""assigned to me"" and ""overdue""
+- Overdue shown in red",Medium,sprint-7,5,104
+217,Story,Notifications and reminders,"As a field worker, I want to be told about new assignments and due work so that nothing is missed.
+
+Acceptance criteria:
+- Bell with unread count
+- Phone notification when the app is in the background
+- Hourly due-date reminders",Medium,sprint-8,3,104
+218,Story,"Reports and export to CSV, Excel and PDF","As a supervisor, I want reports and exports so that I can share progress with my manager.
+
+Acceptance criteria:
+- Charts by status, priority and assignee
+- Overdue list
+- Export CSV / Excel / PDF with filters",Medium,sprint-8,5,104
+219,Story,Record history and undo,"As a user, I want to see every version and restore an old one so that mistakes can be undone.
+
+Acceptance criteria:
+- History lists each version with who and when
+- Restore makes a new version
+- Works across devices",Medium,sprint-8,5,104
+220,Story,Partial sync,"As a field worker with a small phone, I want only my records on the device so that it saves space and data.
+
+Acceptance criteria:
+- Keep all, mine, or one area
+- Records outside the scope are removed from the phone
+- Changing scope re-syncs",Medium,sprint-9,5,104
+221,Story,Conflict rules chosen by the admin,"As an admin, I want to choose per field what happens on a conflict so that the rules fit our work.
+
+Acceptance criteria:
+- Later save wins, a person decides, or merge text
+- Saved per team
+- Applied on the server",Medium,sprint-8,3,105
+222,Story,Merge notes character by character (CRDT),"As a field worker, I want both people notes kept when we edit at the same time so that nothing is lost.
+
+Acceptance criteria:
+- Notes use a Yjs text CRDT
+- Both offline edits survive in any order
+- Re-sending the same edit is harmless",Medium,sprint-8,8,105
+223,Story,Suggestions and duplicate warnings,"As a field worker, I want hints for priority, status and possible duplicates so that data is consistent.
+
+Acceptance criteria:
+- Keyword rules suggest priority and status with a reason
+- Similar title, location or within 100 m flagged as duplicate
+- Conflicts show a suggested combined text",Medium,sprint-9,3,105
+224,Story,"GitHub Actions: tests, APK and release","As a developer, I want every push tested and built so that a fresh APK is always one download away.
+
+Acceptance criteria:
+- Tests on PGlite and PostgreSQL
+- Debug APK + website zip published as a GitHub release
+- Emulator start check with screenshot",Medium,sprint-9,5,106
+225,Story,Signed release APK,"As a release manager, I want a signed APK so that the app can be updated and later published.
+
+Acceptance criteria:
+- Keystore kept in GitHub secrets
+- Release APK signed when secrets exist
+- Version code increases every build",Medium,sprint-9,3,106
+226,Story,"Telugu, Hindi and English","As a field worker, I want the app in my language so that it is easy to use.
+
+Acceptance criteria:
+- Language picker on every screen
+- All text translated
+- Test checks no text is missing",Medium,sprint-9,5,106
